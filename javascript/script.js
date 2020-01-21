@@ -18,12 +18,40 @@ $(document).ready(function() {
     }
     alert(numberList);
 
+    setTimeout(getNewPrompt, 2000);
 
-
-
+    var userNumber = [];
+    var message = 'Hai vinto';
+    function getNewPrompt() {
+      for (var i = 0; i < 5; i++) {
+        number = parseInt(prompt('Inserisci un numero da 1 a 100'));
+        userNumber.push(number);
+        console.log(userNumber);
+      }
+      if(isInArray(numberList, userNumber) == true){
+        message = 'Hai Vinto';
+        alert(message);
+        findBomb = true;
+      } else {
+        message = 'Hai perso';
+        alert(message);
+      }
+    }
 
     function getRandomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function isInArray(array, element) {
+      var i = 0;
+      var result = false;
+      while (i < array.length && result == false) {
+        if (array[i] == element) {
+          result = true;
+        }
+        i++;
+      }
+      return result;
     }
   }
 );
