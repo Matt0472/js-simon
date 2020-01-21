@@ -8,3 +8,20 @@
 // Usate le slide per vedere la sintassi delle nuove cose studiate :)
 // Pushate ogni piccolo passo in avanti!
 // Qualunque sperimentazione è benvenuta, ma come sempre mettetela in una cartella bonus lasciando l'esercizio base funzionante come index principale
+var numberList = [];
+var randomNumber = getRandomNumber(1, 100);
+while (numberList < 5) {
+  if (numberList.includes(randomNumber) == false) {
+    numberList.push(randomNumber);
+
+  }
+}
+var cpuNumber = alert(randomNumber);
+
+
+
+
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
