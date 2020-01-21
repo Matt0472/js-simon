@@ -11,6 +11,7 @@
 $(document).ready(function() {
     var numberList = [];
     var points = 0;
+    // riempimento dell'array vuoto con i numeri casuali generati dalla funzione
     while (numberList.length < 5) {
       var randomNumber = getRandomNumber(1, 100);
       if (numberList.includes(randomNumber) == false) {
@@ -18,18 +19,20 @@ $(document).ready(function() {
       }
     }
     alert(numberList);
-
+    console.log(numberList);
     setTimeout(getNewPrompt, 2000);
 
     var userNumber = [];
     var message = 'Hai vinto';
-
+    // funzione specifica e cuore del codice
     function getNewPrompt() {
+      // ciclo for la generazione di 5 prompt con 5 numeri casuali
       for (var i = 0; i < 5; i++) {
         number = parseInt(prompt('Inserisci un numero da 1 a 100'));
         userNumber.push(number);
         console.log(userNumber);
       }
+      // condizione di verifica: se i numeri sono contenuti nell'array stampa messaggio e viceversa
       if(isInArray(numberList, number) == true){
         message = 'Hai Vinto';
         alert(message);
@@ -37,6 +40,8 @@ $(document).ready(function() {
         message = 'Hai perso';
         alert(message);
       }
+
+      // ciclo while per il controllo quanti numeri sono stati indovinati
       var y = 0;
       while (y < userNumber.length){
         if (isInArray(numberList, userNumber[y]) == true){
@@ -46,11 +51,12 @@ $(document).ready(function() {
       }
       alert('hai indovinato' + ' ' + points + ' ' + 'numeri')
     }
-
+    // funzioni generiche
+    // funzione per numero random
     function getRandomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
-
+    // funzione per il controllo se il numero è presente nell'array selezionato
     function isInArray(array, element) {
       var i = 0;
       var result = false;
