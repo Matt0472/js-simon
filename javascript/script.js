@@ -28,10 +28,9 @@ $(document).ready(function() {
         userNumber.push(number);
         console.log(userNumber);
       }
-      if(isInArray(numberList, userNumber) == true){
+      if(isInArray(numberList, number) == true){
         message = 'Hai Vinto';
         alert(message);
-        findBomb = true;
       } else {
         message = 'Hai perso';
         alert(message);
