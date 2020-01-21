@@ -10,6 +10,7 @@
 // Qualunque sperimentazione è benvenuta, ma come sempre mettetela in una cartella bonus lasciando l'esercizio base funzionante come index principale
 $(document).ready(function() {
     var numberList = [];
+    var points = 0;
     while (numberList.length < 5) {
       var randomNumber = getRandomNumber(1, 100);
       if (numberList.includes(randomNumber) == false) {
@@ -22,6 +23,7 @@ $(document).ready(function() {
 
     var userNumber = [];
     var message = 'Hai vinto';
+
     function getNewPrompt() {
       for (var i = 0; i < 5; i++) {
         number = parseInt(prompt('Inserisci un numero da 1 a 100'));
@@ -35,6 +37,14 @@ $(document).ready(function() {
         message = 'Hai perso';
         alert(message);
       }
+      var y = 0;
+      while (y < userNumber.length){
+        if (isInArray(numberList, userNumber[y]) == true){
+          points++;
+        }
+        y++;
+      }
+      alert('hai indovinato' + ' ' + points + ' ' + 'numeri')
     }
 
     function getRandomNumber(min, max) {
